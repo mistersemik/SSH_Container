@@ -14,12 +14,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Docker image
-        run: docker build -t SSH_APP:latest .
+        run: docker build -t ssh-app:latest .
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'SSH_APP:latest'
+          image-ref: 'ssh-app:latest'
           format: 'sarif'
           severity: 'CRITICAL,HIGH'
           ignore-unfixed: true
